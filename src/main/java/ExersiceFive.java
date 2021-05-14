@@ -10,7 +10,7 @@ public class ExersiceFive {
         Iterator<T> firstStream = first.iterator();
         Iterator<T> secondStream = second.iterator();
         Stream<T> concat = Stream.empty();
-        while (firstStream.hasNext() || secondStream.hasNext()) {
+        while (firstStream.hasNext() && secondStream.hasNext()) {
             concat = Stream.concat(concat, Stream.of(firstStream.next(),secondStream.next()));
         }
         return concat.collect(Collectors.collectingAndThen(Collectors.toList(), list -> {
